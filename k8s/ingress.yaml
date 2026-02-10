@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: video-game-store-ingress
+  namespace: video-game-store
+spec:
+  rules:
+    - host: video-game-store.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: video-game-store-service
+                port:
+                  number: 80
